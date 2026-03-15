@@ -1,0 +1,101 @@
+
+.timer-container .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timer-container input {
+  width: 272px;
+  padding-left: 16px;
+  border-radius: 4px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 4%;
+  border: 1px solid #808080;
+  color: #2E2F42;
+}
+
+.timer-container input:hover {
+  border: 1px solid #000000;
+}
+
+input:disabled {
+  border: 1px solid #808080;
+  background-color: #FAFAFA;
+  color: #808080;
+}
+
+input:focus {
+  outline: none;
+  border: 1px solid #4E75FF;
+}
+
+.timer-container {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.timer-container  button {
+  width: 75px;
+  height: 40px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: #CFCFCF;
+  border: none;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 4%;
+  color: #989898;
+  margin-left: 8px;
+}
+
+.timer-container  button:hover {
+  background-color: #6C8CFF;
+  color: #FFFFFF;
+}
+
+.timer-container  button:active {
+  background-color: #4E75FF;
+}
+
+.timer {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+  justify-content: center;
+  margin-top: 32px;
+  margin-bottom: 100px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.value {
+  
+  font-weight: 400;
+  font-style: normal;
+  font-size: 40px;
+  line-height: 48px;
+  letter-spacing: 4%;
+  color: #2E2F42;
+}
+
+.label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  color: #2E2F42;
+  text-transform: uppercase;
+}

@@ -1,9 +1,10 @@
-console.log('timer.js завантажився!');
-
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
+
+console.log('timer.js завантажився!');
+
 
 const dateInput = document.querySelector('#datetime-picker');
 const startBtn = document.querySelector('.js-start-btn');
@@ -17,10 +18,12 @@ startBtn.disabled = true;
 let intervalId;
 let userSelectedDate = null;
 
+
 flatpickr(dateInput, {
   enableTime: true,
   time_24hr: true,
   minuteIncrement: 1,
+  defaultDate: new Date(),
   onClose(selectedDates) {
     const pickedDate = selectedDates[0];
     if (!pickedDate) return;
@@ -60,7 +63,7 @@ function convertMs(ms) {
 }
 
 
-  startBtn.addEventListener('click', () => {
+startBtn.addEventListener('click', () => {
   if (!userSelectedDate) return;
   if (intervalId) clearInterval(intervalId);
 

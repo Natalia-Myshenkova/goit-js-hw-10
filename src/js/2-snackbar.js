@@ -1,43 +1,42 @@
-
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
-const delayInput = document.querySelector('.delay');
-const resolveRadio = document.querySelector('.resolve');
-const rejectRadio = document.querySelector('.reject');
-const form = document.querySelector('.form');
+const form = document.querySelector(".form");
+const delayInput = document.querySelector(".delay");
+const resolveRadio = document.querySelector(".resolve");
 
-form.addEventListener('submit', (e) => {
+form.addEventListener("submit", e => {
   e.preventDefault();
 
   const delay = Number(delayInput.value);
+  const shouldResolve = resolveRadio.checked;
 
   const promise = new Promise((resolve, reject) => {
-    if (resolveRadio.checked) {
-      setTimeout(() => resolve(`✅ Fulfilled promise in ${delay}ms`), delay);
-    } else if (rejectRadio.checked) {
-      setTimeout(() => reject(`❌ Rejected promise in ${delay}ms`), delay);
-    } else {
-      reject(" Please select an option");
-    }
+    setTimeout(() => {
+      if (shouldResolve) {
+        resolve(delay);
+      } else {
+        reject(delay);
+      }
+    }, delay);
   });
 
   promise
-    .then(message => {
-      console.log(message);
+    .then(delay => {
       iziToast.show({
-        message: message,
-        position: 'topRight',
-        color: '#59a10d'
+        message: `✅ Fulfilled promise in ${delay}ms`,
+        position: "topRight",
+        color: "#59a10d",
       });
+      console.log(`✅ Fulfilled promise in ${delay}ms`);
     })
-    .catch(message => {
-      console.log(message);
+    .catch(delay => {
       iziToast.show({
-        message: message,
-        position: 'topRight',
-        color: '#ef4040'
+        message: `❌ Rejected promise in ${delay}ms`,
+        position: "topRight",
+        color: "#ef4040",
       });
+      console.log(`❌ Rejected promise in ${delay}ms`);
     });
 
   form.reset();
